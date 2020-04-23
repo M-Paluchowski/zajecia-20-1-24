@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 th:text="${header}">Nagłówek użytkownika</h1>
+
+    <h2 th:text="|Imie: ${user.firstName}|"></h2>
+    <h2 th:text="|Nazwisko: ${user.lastName}|"></h2>
+<!--    <a th:href="@{|/products/${product.name}|}" th:text="${product.name}"></a>-->
+<!--    <img th:src="${product.imageUrl}">-->
+    <h2 th:if="${number >= 0}">Liczba większa lub równa 0</h2>
+    <h2 th:if="${number < 0}">Liczba mniejsza od 0</h2>
+
+    <ul>
+        <li th:each="u: ${users}">Element listy</li>
+    </ul>
+</body>
+</html>
