@@ -8,6 +8,10 @@ public class Animal {
     private String imageUrl;
     private AnimalSpecies species;
 
+    public Animal() {
+
+    }
+
     public Animal(String name, String description, String imageUrl, AnimalSpecies species) {
         this.name = name;
         this.description = description;
@@ -31,6 +35,22 @@ public class Animal {
         return species;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public void setSpecies(AnimalSpecies species) {
+        this.species = species;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,5 +62,15 @@ public class Animal {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", species=" + species +
+                '}';
     }
 }

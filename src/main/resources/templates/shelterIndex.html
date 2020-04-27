@@ -7,15 +7,23 @@
 <body>
     <h1>Schronisko Reksio i Klaskier</h1>
 
+    <a href="/shelter/add">Dodaj zwierzaka do adopcji</a><br/>
+
     Gatunki:
     <a href="/shelter">Wszystkie</a>
     <a href="/shelter?gatunek=CAT">Koty</a>
     <a href="/shelter?gatunek=DOG">Psy</a>
-    <a href="/shelter?gatunek=OTHER">Inne</a>
+    <a href="/shelter?gatunek=OTHER">Inne</a><br/>
+
+    Sortowanie:
+    <a th:href="'/shelter?order=ASC' + (${species != null} ? '&gatunek=' + ${species} : '')">Rosnąco</a>
+    <a th:href="'/shelter?order=DESC' + (${species != null} ? '&gatunek=' + ${species} : '')">Malejąco</a>
+
+<!--    ZROBIĆ WYSZUKIWANIE-->
 
     <h2>Zwierzaki szukające domu:</h2>
     <a th:each="animal: ${animals}" th:href="@{'/shelter/animal?name=' + ${animal.name}}">
-        <img th:src="${animal.imageUrl}"/>
+        <img th:src="${animal.imageUrl}" style="width: 300px; "/>
         <h2 th:text="${animal.name}">Imie zwierzaka</h2>
         <p th:text="${animal.description}">opis</p>
     </a>

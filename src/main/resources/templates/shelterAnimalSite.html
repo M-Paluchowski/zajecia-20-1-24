@@ -7,11 +7,13 @@
 <body>
     <h1>Schronisko Reksio i Klaskier</h1>
 
-    <a href="/">Powrót do listy</a>
+    <a href="/">Powrót do listy</a><br/>
+
+    <a th:href="@{|/shelter/edit?name=${animal.name}|}">Edytuj</a>
 
     <h2 th:text="${animal.name}">Imie zwierzaka</h2>
 
-    <img th:src="${animal.imageUrl}"/>
+    <img th:src="${animal.imageUrl}" style="width: 300px;"/>
 
     <p th:text="${animal.description}">Opis zwierzaka</p>
 </body>

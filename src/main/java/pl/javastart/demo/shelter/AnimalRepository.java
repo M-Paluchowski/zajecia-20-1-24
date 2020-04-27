@@ -49,4 +49,9 @@ public class AnimalRepository {
                 .filter(animal -> animal.getSpecies() == species)
                 .collect(toSet());
     }
+
+    public void add(Animal animal) {
+        animals.add(animal);
+
+    }
 }
