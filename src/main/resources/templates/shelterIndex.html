@@ -7,6 +7,12 @@
 <body>
     <h1>Schronisko Reksio i Klaskier</h1>
 
+    Gatunki:
+    <a href="/shelter">Wszystkie</a>
+    <a href="/shelter?gatunek=CAT">Koty</a>
+    <a href="/shelter?gatunek=DOG">Psy</a>
+    <a href="/shelter?gatunek=OTHER">Inne</a>
+
     <h2>Zwierzaki szukające domu:</h2>
     <a th:each="animal: ${animals}" th:href="@{'/shelter/animal?name=' + ${animal.name}}">
         <img th:src="${animal.imageUrl}"/>

@@ -6,11 +6,13 @@ public class Animal {
     private String name;
     private String description;
     private String imageUrl;
+    private AnimalSpecies species;
 
-    public Animal(String name, String description, String imageUrl) {
+    public Animal(String name, String description, String imageUrl, AnimalSpecies species) {
         this.name = name;
         this.description = description;
         this.imageUrl = imageUrl;
+        this.species = species;
     }
 
     public String getName() {
@@ -23,6 +25,10 @@ public class Animal {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public AnimalSpecies getSpecies() {
+        return species;
     }
 
     @Override

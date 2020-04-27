@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Objects;
 import java.util.Set;
+
+import static java.util.Objects.*;
 
 @Controller
 @RequestMapping("/shelter")
@@ -23,8 +26,14 @@ public class AnimalController {
     }
 
     @GetMapping
-    String home(Model model) {
-        Set<Animal> animals = animalRepository.findAll();
+    String home(Model model, @RequestParam(required = false, name = "gatunek") AnimalSpecies species) {
+        Set<Animal> animals;
+
+        if (nonNull(species)) {
+            animals = animalRepository.findBySpecies(species);
+        } else {
+            animals = animalRepository.findAll();
+        }
         model.addAttribute("animals", animals);
         return "shelterIndex";
     }
